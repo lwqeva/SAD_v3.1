@@ -16,7 +16,7 @@ void ADS::Initialize()
 	Clear();
 	nvar = 0;
 	nnz_pd = 0;
-	maxNNZ_pd = (1<<28);		// 1<<29 is maximum for release compiler
+	maxNNZ_pd = (1<<28);
 	cooRow = new int[maxNNZ_pd];
 	cooCol = new int[maxNNZ_pd];
 	pd = new float[maxNNZ_pd];

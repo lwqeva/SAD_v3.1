@@ -120,7 +120,7 @@ int main()
 	clock_t begin = clock();
 
 	for(int i = 1; i < 11; ++i)
-		TestCase(32*i+1,R[i]);  // 430 is maximum
+		TestCase(32*i+1,R[i]);
 	clock_t end = clock();
 
 	float elap = float( end - begin ) / CLOCKS_PER_SEC;

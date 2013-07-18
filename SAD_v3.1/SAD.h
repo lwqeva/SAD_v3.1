@@ -3,6 +3,24 @@
 */
 #include <cassert>
 
+// Memory manager for massively parallel forward mode AD
+class MemoryManagerForward
+{
+public:
+	float *D1, *d1; //, *h_d1;
+	float *D2, *d2;
+	float *dK, *h_dK;
+	float *pd;
+
+	int M, N;
+	int nvar_S, nvar_K, nvar_T0, nvar_T;
+	int nnzpd_S, nnzpd_K, nnzpd_T0, nnzpd_T;
+
+	void Allocate(int M, int N);
+	void Clear();
+};
+
+
 // AD session 
 class ADS
 {
@@ -47,23 +65,6 @@ public:
 		v = a;
 		return *this;
 	}
-};
-
-// Memory manager for massively parallel forward mode AD
-class MemoryManagerForward
-{
-public:
-	float *D1, *d1; //, *h_d1;
-	float *D2, *d2;
-	float *dK, *h_dK;
-	float *pd;
-
-	int M, N;
-	int nvar_S, nvar_K, nvar_T0, nvar_T;
-	int nnzpd_S, nnzpd_K, nnzpd_T0, nnzpd_T;
-
-	void Allocate(int M, int N);
-	void Clear();
 };
 
 
